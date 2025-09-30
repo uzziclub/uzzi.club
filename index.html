@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Uzzi Club – Web Development, Graphic Designing, Gaming Topups, Courses, and Custom Requests. Cyberpunk-themed modern website.">
+  <meta name="keywords" content="Uzzi Club, Web Development, Graphic Design, FF Topups, UC, Courses, Custom Requests, Cyberpunk website">
+  <meta name="author" content="Uzair Ahmad">
+  <meta property="og:title" content="Uzzi Club">
+  <meta property="og:description" content="Uzzi Club – Innovative IT and Cyber Services.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.png">
+  <title>Uzzi Club</title>
+  <style>
+    /* ========== Reset & Base Styles ========== */
+    * {margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', sans-serif;}
+    body {background:#0a0a0a;color:#fff;overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;}
+    button{cursor:pointer;}
+
+    /* ========== Navbar ========== */
+    nav{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(10,10,10,0.85);z-index:1000;}
+    nav img{height:50px;transition:0.3s;}
+    nav img:hover{filter: drop-shadow(0 0 10px #00ffff);}
+    nav ul{display:flex;gap:1.5rem;}
+    nav ul li{list-style:none;}
+    nav ul li a{position:relative;color:#0ff;font-weight:bold;}
+    nav ul li a::after{content:'';position:absolute;width:0%;height:2px;bottom:-4px;left:0;background:#0ff;transition:0.3s;}
+    nav ul li a:hover::after{width:100%;}
+
+    /* ========== Hero Section ========== */
+    header{height:100vh;background:url('assets/hero-bg.jpg') center/cover no-repeat;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;}
+    header::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);}
+    header h1{position:relative;font-size:3rem;color:#0ff;margin-bottom:1rem;animation:fadeInDown 1s ease forwards;}
+    header p{position:relative;font-size:1.2rem;color:#fff;margin-bottom:2rem;animation:fadeInUp 1s ease forwards;animation-delay:0.5s;}
+    header button{position:relative;padding:0.8rem 2rem;border:none;background:#0ff;color:#000;font-weight:bold;font-size:1rem;border-radius:8px;transition:0.3s;animation:fadeInUp 1s ease forwards;animation-delay:0.7s;}
+    header button:hover{background:#00ffff;box-shadow:0 0 20px #0ff;}
+
+    @keyframes fadeInDown {from{opacity:0;transform:translateY(-50px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeInUp {from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
+
+    /* ========== Section Styles ========== */
+    section{padding:6rem 2rem;position:relative;z-index:1;}
+    .section-title{text-align:center;font-size:2rem;color:#0ff;margin-bottom:3rem;position:relative;}
+    .section-title::after{content:'';width:60px;height:2px;background:#0ff;display:block;margin:1rem auto;}
+
+    /* Services Grid */
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
+    .service-card{background:#111;padding:1.5rem;border-radius:12px;transition:0.3s;box-shadow:0 0 15px rgba(0,255,255,0.2);}
+    .service-card img{border-radius:8px;margin-bottom:1rem;}
+    .service-card h3{color:#0ff;margin-bottom:0.5rem;}
+    .service-card p{color:#ccc;margin-bottom:1rem;}
+    .service-card button{padding:0.5rem 1.2rem;border:none;background:#0ff;color:#000;font-weight:bold;border-radius:6px;transition:0.3s;}
+    .service-card button:hover{background:#00ffff;box-shadow:0 0 15px #0ff;}
+
+    /* FAQ Accordion */
+    .faq-item{background:#111;border-radius:10px;margin-bottom:1rem;overflow:hidden;}
+    .faq-item h4{padding:1rem;font-size:1.1rem;background:#000;color:#0ff;cursor:pointer;position:relative;}
+    .faq-item h4::after{content:'+';position:absolute;right:1rem;}
+    .faq-item.active h4::after{content:'-';}
+    .faq-item p{padding:0 1rem 1rem 1rem;color:#ccc;display:none;}
+    .faq-item.active p{display:block;}
+
+    /* Contact Buttons */
+    .contact-buttons{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem;}
+    .contact-buttons a{padding:0.8rem 2rem;background:#0ff;color:#000;font-weight:bold;border-radius:8px;transition:0.3s;}
+    .contact-buttons a:hover{background:#00ffff;box-shadow:0 0 15px #0ff;}
+
+    /* Footer */
+    footer{text-align:center;padding:2rem 1rem;background:#000;color:#0ff;}
+    
+    /* Responsive */
+    @media(max-width:768px){nav ul{display:none;}}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <img src="assets/logo.png" alt="Uzzi Club Logo">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home">
+    <h1>Welcome to Uzzi Club</h1>
+    <p>Your one-stop solution for Web Development, Design, Gaming Topups & IT Courses</p>
+    <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Discover Services</button>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+      <div class="service-card">
+        <img src="assets/service1.jpg" alt="Web Development">
+        <h3>Web Development</h3>
+        <p>Modern websites with responsive designs, SEO-friendly content, and smooth animations.</p>
+        <button onclick="goToContact('Web Development')">Select</button>
+      </div>
+      <div class="service-card">
+        <img src="assets/service2.jpg" alt="Graphic Designing">
+        <h3>Graphic Designing</h3>
+        <p>Creative logos, branding, and visuals that make your project stand out in style.</p>
+        <button onclick="goToContact('Graphic Designing')">Select</button>
+      </div>
+      <div class="service-card">
+        <img src="assets/service3.jpg" alt="Gaming Topups">
+        <h3>FF / UC Topups</h3>
+        <p>Quick and secure top-ups for Free Fire and UC, keeping your gaming experience uninterrupted.</p>
+        <button onclick="goToContact('FF / UC Topups')">Select</button>
+      </div>
+      <div class="service-card">
+        <img src="assets/service4.jpg" alt="Courses & Custom">
+        <h3>Courses & Custom Requests</h3>
+        <p>Learn IT and Cybersecurity or get personalized solutions crafted just for you.</p>
+        <button onclick="goToContact('Courses / Custom Requests')">Select</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq">
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-item">
+      <h4>What makes Uzzi Club unique?</h4>
+      <p>Uzzi Club combines IT services, gaming, and online learning in one futuristic, neon-inspired platform.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Who is behind Uzzi Club?</h4>
+      <p>Uzair Ahmad – Computer Science student at Peshawar Model School Boys 4 and founder of Uzzi Club.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How can I contact Uzzi Club?</h4>
+      <p>You can reach us via WhatsApp, X.com, or TikTok — links in the Contact section.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-buttons">
+      <a href="https://wa.me/03118356118" target="_blank">WhatsApp</a>
+      <a href="https://x.com/uzziclub" target="_blank">X.com</a>
+      <a href="https://www.tiktok.com/@uzzi.club" target="_blank">TikTok</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Uzzi Club. All Rights Reserved.
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    const faqs = document.querySelectorAll('.faq-item h4');
+    faqs.forEach(faq => {
+      faq.addEventListener('click', () => {
+        faq.parentElement.classList.toggle('active');
+      });
+    });
+
+    // Go to contact section with prefill
+    function goToContact(service){
+      alert(`You selected: ${service}. Please contact us below!`);
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    }
+  </script>
+</body>
+</html>
